@@ -36,8 +36,8 @@ if (!path) window.location.href = "https://bilaltoday.com";
       } else {
         // wenn kein Redirect vorhanden: einfache Info-Seite
         document.addEventListener('DOMContentLoaded', () => {
-          document.body.innerHTML = '<h1>No redirect for /' + (path || '') + '</h1>'
-            + '<p>Edit the redirects list in index.html to add targets.</p>';
+          document.body.innerHTML = '<h1>Er wohnt hier garnicht' + (path || '') + '</h1>'
+            + '<p>Oder suchst du BilalToday.com? Der wohnt eine Strasse weiter...</p>';
         });
       }
     })();
