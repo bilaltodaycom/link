@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    // Dieser Code leitet die ursprüngliche Pfad-URL als Query 'p' an index.html weiter.
+    // Das ist der klassische GitHub-Pages SPA-Workaround.
+    (function () {
+      var p = location.pathname + location.search + location.hash; // z.B. "/123"
+      location.replace('/?p=' + encodeURIComponent(p));
+    })();
+  </script>
+</head>
+<body>
+  <p>Leite weiter…</p>
+</body>
+</html>
