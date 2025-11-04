@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirects — shop.bilaltoday.com</title>
+  <script>
+    // --- HIER trägst du deine Weiterleitungen ein:
+    // Format: "pfad": "https://ziel.example"
+    // Beispiel: "123": "https://meinshop.example/produkt/123"
+    const redirects = {
+      "123": "https://www.google.com",
+      "456": "https://www.youtube.com"
+      // füge hier weitere Zeilen hinzu, keine Kommata nach der letzten Zeile
+    };
+
+    // --- NICHTS weiter ändern unterhalb, außer du weißt, was du tust ---
+    (function () {
+      // falls 404->index trick die ursprüngliche URL als Query übergibt:
+      const q = new URLSearchParams(location.search).get('p');
+      const raw = q || location.pathname;             // z.B. "/123"
+      const path = raw.replace(/^\/|\/$/g, '');       // "123" (ohne /)
+
+      if (path && redirects[path]) {
+        // permanenter Redirect (ersetzt die URL im Verlauf)
+        location.replace(redirects[path]);
+      } else {
+        // wenn kein Redirect vorhanden: einfache Info-Seite
+        document.addEventListener('DOMContentLoaded', () => {
+          document.body.innerHTML = '<h1>No redirect for /' + (path || '') + '</h1>'
+            + '<p>Edit the redirects list in index.html to add targets.</p>';
+        });
+      }
+    })();
+  </script>
+</head>
+<body>
+  <h1>Redirecting…</h1>
+</body>
+</html>
