@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop — bilal2day</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    // Einfaches Routing: zeigt Inhalt abhängig vom Pfad
+    function render() {
+      const raw = location.pathname; // z.B. "/123" oder "/"
+      const path = raw.replace(/^\/|\/$/g, ''); // "123" oder ""
+      const app = document.getElementById('app');
+
+      if (!path) {
+        app.innerHTML = '<h1>Willkommen im Shop</h1><p>Startseite</p>';
+        return;
+      }
+      if (/^\d+$/.test(path)) {
+        app.innerHTML = '<h1>Produkt #' + path + '</h1><p>Hier stehen die Produktinfos für ' + path + '.</p>';
+        return;
+      }
+      app.innerHTML = '<h1>Seite: ' + path + '</h1><p>Automatisch generierter Inhalt.</p>';
+    }
+
+    window.addEventListener('load', render);
+  </script>
+</body>
+</html>
